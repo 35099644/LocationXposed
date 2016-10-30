@@ -51,14 +51,14 @@ public class LocationXposedMain implements IXposedHookLoadPackage {
             @Override
             protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable
             {
-                double latutude = 40.01547;
+                double latitude = 40.01547;
                 double longitude = 116.40761;
                 Object euexInstance = methodHookParam.thisObject;
                 Class euexClass = euexInstance.getClass();
                 Field latitudeField = euexClass.getDeclaredField("latitude");
                 latitudeField.setAccessible(true);
-                latitudeField.setDouble(euexInstance, latutude);
-                Field longitudeField = euexClass.getField("longitude");
+                latitudeField.setDouble(euexInstance, latitude);
+                Field longitudeField = euexClass.getDeclaredField("longitude");
                 longitudeField.setAccessible(true);
                 longitudeField.setDouble(euexInstance, longitude);
                 XposedBridge.log("Crack punch location Successfully!!! ");
