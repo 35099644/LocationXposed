@@ -32,8 +32,8 @@ public class LocationXposedMain implements IXposedHookLoadPackage {
             @Override
             protected void afterHookedMethod(MethodHookParam methodHookParam) throws Throwable {
                 Log.i("zypXposed","afterHookedMethod");
-                double latitude = 40.01547;
-                double longitude = 116.40761;
+                double latitude = Utils.getRandom(40.014134, 40.016492);
+                double longitude = Utils.getRandom(116.40554, 116.409205);
                 Object euexInstance = methodHookParam.thisObject;
                 Class euexClass = euexInstance.getClass();
                 Field latitudeField = euexClass.getDeclaredField("latitude");
