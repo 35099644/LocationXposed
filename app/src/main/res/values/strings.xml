@@ -9,8 +9,7 @@
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_crack_switch">Enable Crack!</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
+    <string name="pref_description_crack_switch">You know it.
     </string>
 
     <string name="pref_title_display_name">Display name</string>
