@@ -33,10 +33,11 @@ public class LocationXposedMain implements IXposedHookLoadPackage {
             @Override
             protected void afterHookedMethod(MethodHookParam methodHookParam) throws Throwable {
                 Log.i("zypXposed","afterHookedMethod");
-                boolean isNeedHook = false;
-                XSharedPreferences sp = new XSharedPreferences(this.getClass()
-                        .getPackage().getName(), "pref_general");
-                isNeedHook = sp.getBoolean("globalSwitch",false);
+                boolean isNeedHook = true;
+                String packageName = this.getClass().getPackage().getName();
+                Log.i("zypXposed","packageName == "+packageName);
+                XSharedPreferences sp = Utils.getDefaultSharedPreferences(packageName);
+                isNeedHook = sp.getBoolean("globalSwitch", true);
                 if(!isNeedHook){
                     Log.i("zypXposed","isNeedHook? "+isNeedHook);
                     return;
